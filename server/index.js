@@ -7,9 +7,9 @@ app.use(cors());
 app.use(express.json());
 
 const balances = {
-  "0x1": 100,
-  "0x2": 50,
-  "0x3": 75,
+  "c4c4d38e794e6a8edce052cfc1e87055e64611f4": 100,
+  "df8165f5c394377a93cd58b149a27fe3ea074323": 50,
+  "aae1ea57b020e4a5e1c9303ec57e3df59d35332a": 75,
 };
 
 app.get("/balance/:address", (req, res) => {
@@ -30,6 +30,7 @@ app.post("/send", (req, res) => {
     balances[sender] -= amount;
     balances[recipient] += amount;
     res.send({ balance: balances[sender] });
+    
   }
 });
 
